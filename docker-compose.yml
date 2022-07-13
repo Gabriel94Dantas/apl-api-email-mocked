@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+
+  apl-api-email-mocked:
+    build: .
+    container_name: apl-api-email-mocked-latest
+    hostname: apl-api-email-mocked
+    ports:
+      - 88:88
+    environment:
+      - BROKER_HOST=broker:29092
+
+networks: 
+  default: 
+    external: 
+      name: kafka_confluent_network
